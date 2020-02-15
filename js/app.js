@@ -94,7 +94,7 @@ payable contract ParkingLot =
         
 
 
-`;
+
 const contractAddress ='ct_HpyTW3d3QEcWPjX9REmfhzFcUH7DmroVLmee3d9gZSv9oCVEP';
 var client = null;
 var CarArray = [];
@@ -174,7 +174,7 @@ window.addEventListener('load', async () => {
         checkedOut : car.checkedOut
       })
 
-      renderCars();
+   
     }
   
     
@@ -246,8 +246,7 @@ $('.modal-body').on('click', '#checkInBtn', async function () {
 
   
   
-  $('#cars').on('click', '.checkOutBtn', async function (event) {
-    $(".loading").show();
+  
     console.log("Checking out")
    
     
