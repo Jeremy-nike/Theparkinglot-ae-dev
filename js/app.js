@@ -89,8 +89,7 @@ payable contract ParkingLot =
         
 
         
-
-        
+`;   
         
 
 
@@ -174,7 +173,8 @@ window.addEventListener('load', async () => {
         checkedOut : car.checkedOut
       })
 
-   
+   renderCars();
+        
     }
   
     
@@ -211,11 +211,6 @@ $('.modal-body').on('click', '#checkInBtn', async function () {
 
    
 
-      // if(promise == undefined){
-      //   console.log("reverting request")
-      //   $(".loading").hide();
-
-      // }else{
     const carId = await callStatic('getTotalCars', [])
 
     const newCar = await callStatic('getCar', [carId])
@@ -246,39 +241,24 @@ $('.modal-body').on('click', '#checkInBtn', async function () {
 
   
   
-  
+  $('#cars').on('click', '.checkOutBtn', async function (event) {
+    $(".loading").show();
     console.log("Checking out")
    
     
    
-    // const Lisence_no = $('#Lisence_no').val()
-    
-    // owner_name = ($('#owner_name').val());
-    // nameOfCar = ($('#nameOfCar').val());
-  
-    // image = ($('#image').val())
-  
-    // console.log(image)
+
   
     index = event.target.id
     console.log("index", index)
   
-    // const foundIndex = CarArray.findIndex(car => car.index == event.target.id);
-    // console.log("Found index", Math.abs(foundIndex))
-    // CarArray[Math.abs(foundIndex)].checkedOut = true;
+ 
   
   
     console.log(index)
     await contractCall("checkOut", [index], 100000)
   
-    // const checkedOut = await callStatic('getCar', [index])
   
-    // const checkOutDate = checkedOut.exitDate
-    // console.log("Check out date ",checkOutDate )
-  
-    // CarArray[Math.abs(foundIndex)].exitDate = Date();
-  
-    // console.log(checkedOut)
   
     location.reload()
     console.log("checked out")
