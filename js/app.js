@@ -90,15 +90,9 @@ payable contract ParkingLot =
 
         
 `;   
-        
-
-
-
 const contractAddress ='ct_HpyTW3d3QEcWPjX9REmfhzFcUH7DmroVLmee3d9gZSv9oCVEP';
 var client = null;
 var CarArray = [];
-
-
 
 async function callStatic(func, args) {
   //Create a new contract instance that we can interact with
@@ -137,9 +131,6 @@ function renderCars()
     
     Mustache.parse(template);
     var rendered = Mustache.render(template, {CarArray});
-
-    
-  
 
     $('#cars').html(rendered);
     console.log("for loop reached")
